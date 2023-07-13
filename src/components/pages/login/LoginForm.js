@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function LoginPage() {
+export default function LoginForm() {
   // state
   const [inputValue, setInputValue] = useState("");
   // comportement
