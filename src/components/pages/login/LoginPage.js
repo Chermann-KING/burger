@@ -10,6 +10,7 @@ export default function LoginPage() {
   // affiche
   return (
     <LoginPageStyled>
+      <div className="filter"></div>
       <Logo />
       <LoginForm />
     </LoginPageStyled>
@@ -17,10 +18,22 @@ export default function LoginPage() {
 }
 
 const LoginPageStyled = styled.div`
-  background-color: red;
+  cursor: default;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  background-image: url("./images/burger-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .filter {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+  }
 `;
