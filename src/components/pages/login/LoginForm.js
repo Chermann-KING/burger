@@ -5,6 +5,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import { theme } from "../../../theme/theme";
 
 export default function LoginForm() {
   // state
@@ -51,31 +52,32 @@ const LoginFormStyled = styled.div`
   max-width: 500px;
   min-width: 400px;
   margin: 0 auto;
-  padding: 2.5rem 2rem;
-  border-radius: 5px;
+  padding: ${theme.gridUnit * 0.313}rem ${theme.gridUnit * 0.25}rem;
+  border-radius: ${theme.borderRadius.round};
   font-family: "Amatic SC", cursive;
 
   h1 {
-    color: white;
-    font-size: 48px;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P5};
   }
 
   hr {
-    margin-bottom: 40px;
-    border: 1.5px solid #f56a2c;
+    margin-bottom: ${theme.gridUnit * 5}px;
+    border: 1.5px solid ${theme.colors.horizontalLineLogin};
   }
 
   h2 {
-    color: white;
-    margin: 20px 10px 10px;
-    font-size: 36px;
+    color: ${theme.colors.white};
+    margin: ${theme.gridUnit * 2.5}px ${theme.gridUnit * 1.25}px
+      ${theme.gridUnit * 1.25}px;
+    font-size: ${theme.fonts.size.P4};
   }
 
   .icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
-    margin-left: 10px;
+    font-size: ${theme.fonts.size.P0};
+    margin-left: ${theme.gridUnit * 1.25}px;
   }
 `;
