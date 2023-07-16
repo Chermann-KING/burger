@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
 import { styled } from "styled-components";
-
+import Logo from "../../reusable-ui/Logo";
+import RightSide from "./RightSide";
+import { theme } from "../../../theme/theme";
 export default function Navbar({ username }) {
   // state
 
@@ -9,11 +10,8 @@ export default function Navbar({ username }) {
   // affiche
   return (
     <NavbarStyled className="navbar">
-      Navbar
-      <h1>Bonjour {username}!</h1>
-      <Link to="/">
-        <button>Déconnexion</button>
-      </Link>
+      <Logo />
+      <RightSide username={username} />
     </NavbarStyled>
   );
 }
@@ -23,4 +21,10 @@ const NavbarStyled = styled.nav`
   height: 10vh;
   display: flex;
   justify-content: space-between;
+
+  padding: 0 ${theme.gridUnit * 2.5}px;
+
+  .left-side {
+    border: 1px solid white;
+  }
 `;
