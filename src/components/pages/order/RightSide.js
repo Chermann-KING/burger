@@ -12,7 +12,6 @@ export default function RightSide({ username }) {
 }
 
 const RightSideStyled = styled.div`
-  border: 1px solid white;
   display: flex;
   align-items: center;
   padding-right: ${theme.gridUnit * 6.25}px;

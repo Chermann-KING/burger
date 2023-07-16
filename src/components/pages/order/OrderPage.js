@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import { theme } from "../../../theme/theme";
 
 export default function OrderPage() {
   // state
@@ -30,7 +31,7 @@ const OrderPageStyled = styled.div`
   justify-content: center;
 
   .container {
-    background: red;
+    border-radius: ${theme.borderRadius.extraRound};
     height: 95vh;
     width: 1400px;
     display: flex;
