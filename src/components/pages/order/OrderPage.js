@@ -22,6 +22,8 @@ export default function OrderPage() {
 
 const OrderPageStyled = styled.div`
   background: orange;
+
+  cursor: default;
   height: 100vh;
   display: flex;
   align-items: center;
