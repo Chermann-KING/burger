@@ -25,7 +25,7 @@ const LoginPageStyled = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-image: url("./images/burger-background.jpg");
+  background-image: url("./images/burger-background.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
