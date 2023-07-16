@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Logo from "../../reusable-ui/Logo";
 import RightSide from "./RightSide";
 import { theme } from "../../../theme/theme";
+import { refrashPage } from "../../../utils/window";
 export default function Navbar({ username }) {
   // state
 
@@ -10,7 +11,7 @@ export default function Navbar({ username }) {
   // affiche
   return (
     <NavbarStyled className="navbar">
-      <Logo />
+      <Logo className={"logo-navbar"} onClick={() => refrashPage} />
       <RightSide username={username} />
     </NavbarStyled>
   );
@@ -26,7 +27,9 @@ const NavbarStyled = styled.nav`
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
 
-  .left-side {
-    border: 1px solid white;
+  .logo-navbar {
+    :hover {
+      cursor: pointer;
+    }
   }
 `;

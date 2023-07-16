@@ -22,7 +22,7 @@ export default function OrderPage() {
 }
 
 const OrderPageStyled = styled.div`
-  background: orange;
+  background: ${theme.colors.primary};
 
   cursor: default;
   height: 100vh;
