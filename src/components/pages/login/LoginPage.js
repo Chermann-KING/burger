@@ -11,7 +11,7 @@ export default function LoginPage() {
   return (
     <LoginPageStyled>
       <div className="filter"></div>
-      <Logo />
+      <Logo className={"logo-login-page"} />
       <LoginForm />
     </LoginPageStyled>
   );
@@ -29,6 +29,10 @@ const LoginPageStyled = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  .logo-login-page {
+    transform: scale(2.5);
+  }
 
   .filter {
     position: absolute;
