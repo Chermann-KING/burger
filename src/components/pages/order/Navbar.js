@@ -11,7 +11,7 @@ export default function Navbar({ username }) {
   // affiche
   return (
     <NavbarStyled className="navbar">
-      <Logo className={"logo-navbar"} onClick={() => refrashPage} />
+      <Logo className={"logo-navbar"} onClick={() => refrashPage()} />
       <RightSide username={username} />
     </NavbarStyled>
   );
