@@ -12,7 +12,17 @@ export default function Menu() {
       {products.map((product) => {
         return (
           <div key={product.id} className="produit">
-            {product.title}
+            <div className="info-text">
+              <div className="image">
+                <img src={product.imageSource} alt={product.title} />
+              </div>
+
+              <div className="description">
+                <h2>{product.title}</h2>
+                <h3>{product.price}</h3>
+                <button>Ajouter</button>
+              </div>
+            </div>
           </div>
         );
       })}
@@ -21,8 +31,6 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
-  border: 5px solid blue;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 60px;
@@ -33,5 +41,18 @@ const MenuStyled = styled.div`
     background: red;
     width: 240px;
     height: 330px;
+
+    .image {
+      border: 1px solid fuchsia;
+      width: 100px;
+      height: auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .description {
+      border: 1px solid fuchsia;
+    }
   }
 `;
