@@ -18,6 +18,7 @@ const MainStyled = styled.main`
   display: grid;
   /* grid-template-columns: 25% 1fr; */
   grid-template-columns: 1fr;
+  overflow-y: scroll;
 
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
