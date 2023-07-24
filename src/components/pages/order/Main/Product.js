@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { theme } from "../../../../theme/theme";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+import { formatPrice } from "../../../../utils/maths";
 
 export default function Product({ id, imageSource, title, price }) {
   return (
@@ -16,7 +17,7 @@ export default function Product({ id, imageSource, title, price }) {
 
         <div className="description">
           <div className="left-description">
-            <p>{price} €</p>
+            <p>{formatPrice(price)}</p>
           </div>
 
           <div className="right-description">
