@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
-import Logo from "../../reusable-ui/Logo";
+import Logo from "../../../reusable-ui/Logo";
 import RightSide from "./RightSide";
-import { theme } from "../../../theme/theme";
-import { refrashPage } from "../../../utils/window";
+import { refrashPage } from "../../../../utils/window";
+import { theme } from "../../../../theme/theme";
 export default function Navbar({ username }) {
   // state
 
@@ -26,6 +26,7 @@ const NavbarStyled = styled.nav`
   padding: 0 ${theme.gridUnit * 2.5}px;
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
+  border-bottom: 1px solid ${theme.colors.greyLight};
 
   .logo-navbar {
     :hover {
