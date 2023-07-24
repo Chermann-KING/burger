@@ -5,6 +5,7 @@ import Product from "./Product";
 
 export default function Menu() {
   // state
+  // eslint-disable-next-line
   const [products, setProducts] = useState(fakeMenu2);
   // comportement
   // affiche
