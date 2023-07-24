@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { theme } from "../../theme/theme";
 
 export default function ToggleButton({
@@ -28,10 +28,8 @@ export default function ToggleButton({
 }
 
 const ToggleButtonStyled = styled.div`
-  /* border: 1px solid red; */
-
   display: flex;
-  margin-right: ${theme.gridUnit * 1.25}px;
+
   input[type="checkbox"] {
     // Hides the square box but keeps the core "toggle functionality"
     &.toggle {
