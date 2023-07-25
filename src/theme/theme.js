@@ -56,6 +56,7 @@ const borderRadius = {
   subtle: 1,
   round: "5px",
   extraRound: "15px",
+  supraRound: "30px",
   circle: "50%",
 };
 const shadows = {};
