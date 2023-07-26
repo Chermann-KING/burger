@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { theme } from "../../../../theme/theme";
 import Menu from "./Menu";
+import Admin from "./Admin/Admin";
 
 export default function Main() {
   return (
@@ -8,14 +9,14 @@ export default function Main() {
       {/* <div className="basket">Basket</div> */}
       <div className="menu-and-admin">
         <Menu />
-        <div className="admin">Admin</div>
+        <Admin />
       </div>
     </MainStyled>
   );
 }
 
 const MainStyled = styled.main`
-  border: 5px solid green;
+  /* border: 5px solid green; */
 
   background: ${theme.colors.background_white};
   flex: 1;
@@ -40,15 +41,5 @@ const MainStyled = styled.main`
 
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
-
-    .admin {
-      background: red;
-
-      height: 250px;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
   }
 `;
