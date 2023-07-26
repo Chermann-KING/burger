@@ -6,6 +6,7 @@ import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function Main() {
+  // eslint-disable-next-line
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   return (
