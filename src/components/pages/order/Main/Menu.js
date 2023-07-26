@@ -27,6 +27,10 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
+  border: 5px solid blue;
+
+  overflow-y: scroll;
+
   display: grid;
   /* grid-template-columns: repeat(4, 1fr); */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
