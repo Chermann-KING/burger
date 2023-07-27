@@ -4,16 +4,19 @@ import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import { theme } from "../../../../../theme/theme";
+import { useContext } from "react";
+import OrderContext from "../../../../../context/OrderContext";
 
-export default function AdminTabs({
-  isCollapsed,
-  setIsCollapsed,
-  isAddSelected,
-  setIsAddSelected,
-  isEditSelected,
-  setIsEditSelected,
-}) {
+export default function AdminTabs() {
   // state
+  const {
+    isCollapsed,
+    setIsCollapsed,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
+  } = useContext(OrderContext);
 
   // comportement
   const selectAddTab = () => {
