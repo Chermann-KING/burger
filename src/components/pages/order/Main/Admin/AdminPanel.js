@@ -1,12 +1,19 @@
 import { styled } from "styled-components";
 import { theme } from "../../../../../theme/theme";
 
-export default function AdminPanel() {
-  return <AdminPanelStyled>AdminPanel</AdminPanelStyled>;
+export default function AdminPanel({
+  isAddSelected,
+  setIsAddSelected,
+  isEditSelected,
+  setIsEditSelected,
+}) {
+  return (
+    <AdminPanelStyled>{`${
+      isAddSelected && "Ajouter un produit"
+    }`}</AdminPanelStyled>
+  );
 }
 const AdminPanelStyled = styled.div`
-  border: 3px solid green;
-
   height: 250px;
   background: ${theme.colors.white};
   border: 1px solid ${theme.colors.greyLight};
