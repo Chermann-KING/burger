@@ -1,52 +1,28 @@
 import { styled } from "styled-components";
 import Tab from "../../../../reusable-ui/Tab";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { MdModeEditOutline } from "react-icons/md";
+
 import { theme } from "../../../../../theme/theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
+import { getTabsConfig } from "./getTabsConfig";
 
 export default function AdminTabs() {
   // state
   const {
     isCollapsed,
     setIsCollapsed,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
+    currentTabSelected,
+    setCurrentTabSelected,
   } = useContext(OrderContext);
 
   // comportement
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false);
-
-    if (tabSelected === "add") {
-      setIsAddSelected(true);
-      setIsEditSelected(false);
-    }
-
-    if (tabSelected === "edit") {
-      setIsEditSelected(true);
-      setIsAddSelected(false);
-    }
+    setIsCollapsed(false); //Ouverture du panel dans tous les cas
+    setCurrentTabSelected(tabSelected); // Réactulisation du tab sélectionné
   };
 
-  const tabsConfig = [
-    {
-      label: "Ajouter un produit",
-      Icon: <AiOutlinePlus />,
-      onClick: () => selectTab("add"),
-      className: isAddSelected ? "is-active" : "",
-    },
-    {
-      label: "Modifier un produit",
-      Icon: <MdModeEditOutline />,
-      onClick: () => selectTab("edit"),
-      className: isEditSelected ? "is-active" : "",
-    },
-  ];
+  const tabs = getTabsConfig(currentTabSelected);
 
   // Affichage
   return (
@@ -57,16 +33,14 @@ export default function AdminTabs() {
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={isCollapsed ? "is-active" : ""}
       />
-      {tabsConfig.map((tab) => {
-        return (
-          <Tab
-            label={tab.label}
-            Icon={tab.Icon}
-            onClick={tab.onClick}
-            className={tab.className}
-          />
-        );
-      })}
+      {tabs.map((tab) => (
+        <Tab
+          label={tab.label}
+          Icon={tab.Icon}
+          onClick={() => selectTab(tab.index)}
+          className={tab.className}
+        />
+      ))}
     </AdminTabsStyled>
   );
 }
