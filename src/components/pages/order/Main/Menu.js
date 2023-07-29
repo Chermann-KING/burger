@@ -27,8 +27,6 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
-  border: 5px solid blue;
-
   overflow-y: scroll;
 
   display: grid;

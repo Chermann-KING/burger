@@ -39,7 +39,7 @@ const CardStyled = styled.div`
 
   background: ${theme.colors.white};
   border-radius: ${theme.borderRadius.extraRound};
-  box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: ${theme.shadows.medium};
 
   .image {
     width: 100%;

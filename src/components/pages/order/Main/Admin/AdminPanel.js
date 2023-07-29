@@ -7,14 +7,10 @@ import { getTabSelected, getTabsConfig } from "./getTabsConfig";
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
 
-  const tabs = getTabsConfig(currentTabSelected);
+  const tabs = getTabsConfig();
   const tabSelected = getTabSelected(tabs, currentTabSelected);
 
-  return (
-    <AdminPanelStyled>
-      {currentTabSelected === tabSelected.index && tabSelected.label}
-    </AdminPanelStyled>
-  );
+  return <AdminPanelStyled>{tabSelected.label}</AdminPanelStyled>;
 }
 const AdminPanelStyled = styled.div`
   height: 250px;

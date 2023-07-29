@@ -22,7 +22,7 @@ export default function AdminTabs() {
     setCurrentTabSelected(tabSelected); // Réactulisation du tab sélectionné
   };
 
-  const tabs = getTabsConfig(currentTabSelected);
+  const tabs = getTabsConfig();
 
   // Affichage
   return (
@@ -35,6 +35,7 @@ export default function AdminTabs() {
       />
       {tabs.map((tab) => (
         <Tab
+          key={tab.index}
           label={tab.label}
           Icon={tab.Icon}
           onClick={() => selectTab(tab.index)}
