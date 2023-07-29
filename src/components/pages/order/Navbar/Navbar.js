@@ -3,7 +3,7 @@ import Logo from "../../../reusable-ui/Logo";
 import RightSide from "./RightSide";
 import { refrashPage } from "../../../../utils/window";
 import { theme } from "../../../../theme/theme";
-export default function Navbar({ username }) {
+export default function Navbar() {
   // state
 
   // comportement
@@ -12,7 +12,7 @@ export default function Navbar({ username }) {
   return (
     <NavbarStyled className="navbar">
       <Logo className={"logo-navbar"} onClick={() => refrashPage()} />
-      <RightSide username={username} />
+      <RightSide />
     </NavbarStyled>
   );
 }

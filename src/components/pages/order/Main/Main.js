@@ -1,30 +1,50 @@
 import { styled } from "styled-components";
 import { theme } from "../../../../theme/theme";
 import Menu from "./Menu";
+import Admin from "./Admin/Admin";
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function Main() {
+  // eslint-disable-next-line
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
+
   return (
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
-      <Menu />
+      <div className="menu-and-admin">
+        <Menu />
+        {isModeAdmin && <Admin />}
+      </div>
     </MainStyled>
   );
 }
 
 const MainStyled = styled.main`
+  /* border: 5px solid green; */
+
   background: ${theme.colors.background_white};
   flex: 1;
+  height: calc(95vh - 10vh);
 
   display: grid;
   /* grid-template-columns: 25% 1fr; */
   grid-template-columns: 1fr;
-  overflow-y: scroll;
 
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: ${theme.shadows.strong};
 
   .basket {
     border: 5px solid red;
+  }
+
+  .menu-and-admin {
+    position: relative;
+    overflow-y: hidden;
+    display: grid;
+
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
   }
 `;

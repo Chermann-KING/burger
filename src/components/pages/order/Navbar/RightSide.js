@@ -4,12 +4,13 @@ import Profile from "./Profile";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
+import { useContext } from "react";
 import ToastAdmin from "./ToastAdmin";
+import OrderContext from "../../../../context/OrderContext";
 
-export default function RightSide({ username }) {
+export default function RightSide() {
   // state
-  const [isModeAdmin, setisModeAdmin] = useState(false);
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   // comportement
   const displayToastNofication = () => {
@@ -25,7 +26,7 @@ export default function RightSide({ username }) {
         progress: undefined,
       });
     }
-    setisModeAdmin(!isModeAdmin);
+    setIsModeAdmin(!isModeAdmin);
   };
 
   // affiche
@@ -34,9 +35,10 @@ export default function RightSide({ username }) {
       <ToggleButton
         labelIfUnchecked="Activer le mode admin"
         labelIfChecked="Désactiver le mode admin"
+        isChecked={isModeAdmin}
         onToggle={displayToastNofication}
       />
-      <Profile username={username} />
+      <Profile />
       <ToastAdmin />
     </RightSideStyled>
   );
