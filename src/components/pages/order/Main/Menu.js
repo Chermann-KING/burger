@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { styled } from "styled-components";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
 
 export default function Menu() {
   // state
   // eslint-disable-next-line
-  const [products, setProducts] = useState(fakeMenu2);
+  const [products, setProducts] = useState(fakeMenu.MEDIUM);
   // comportement
   // affiche
   return (
