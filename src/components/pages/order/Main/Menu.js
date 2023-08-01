@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { styled } from "styled-components";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function Menu() {
   // state
-  // eslint-disable-next-line
-  const [products, setProducts] = useState(fakeMenu.MEDIUM);
+  const { products } = useContext(OrderContext);
+
   // comportement
+
   // affiche
   return (
     <MenuStyled>
