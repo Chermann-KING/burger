@@ -41,7 +41,11 @@ export default function AddForm() {
   return (
     <AddFormStyled onClick={handleSubmit}>
       <div className="image-preview">
-        <img src="" alt="preview" />
+        {newProduct.imageSource ? (
+          <img src={newProduct.imageSource} alt={newProduct.title} />
+        ) : (
+          <p>Aucune image</p>
+        )}
       </div>
       <div className="input-fields">
         <input
@@ -82,8 +86,17 @@ const AddFormStyled = styled.form`
   height: 100%;
 
   .image-preview {
-    background: red;
     grid-area: 1/1 / 4/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .input-fields {
