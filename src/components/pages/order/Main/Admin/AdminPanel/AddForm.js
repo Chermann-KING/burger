@@ -24,6 +24,7 @@ export default function AddForm() {
       id: new Date().getTime(),
     };
     handleAdd(newProductToAdd);
+    setNewProduct(EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {
