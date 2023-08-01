@@ -50,14 +50,14 @@ export default function AddForm() {
       <div className="input-fields">
         <input
           type="text"
-          placeholder="Nom"
+          placeholder="Nom du produit (ex: Super Burger)"
           name="title"
           value={newProduct.title}
           onChange={handleChange}
         />
         <input
           type="text"
-          placeholder="Image URL"
+          placeholder="Lien URL d'une image (ex: https://la—photo—de—mon-produit.png)"
           name="imageSource"
           value={newProduct.imageSource}
           onChange={handleChange}
