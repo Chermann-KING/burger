@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
+import { FiCheck } from "react-icons/fi";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -12,6 +13,7 @@ const EMPTY_PRODUCT = {
 export default function AddForm() {
   // state
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isSubmited, setIsSubmited] = useState(false);
 
   const { handleAdd } = useContext(OrderContext);
 
@@ -25,6 +27,8 @@ export default function AddForm() {
     };
     handleAdd(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
+
+    displaySuccesMessage();
   };
 
   const handleChange = (event) => {
@@ -36,6 +40,13 @@ export default function AddForm() {
     //   ...newProduct,
     //   [name]: newValue,
     // });
+  };
+
+  const displaySuccesMessage = () => {
+    setIsSubmited(true);
+    setTimeout(() => {
+      setIsSubmited(false);
+    }, 2000);
   };
 
   // affichage
@@ -73,6 +84,12 @@ export default function AddForm() {
       </div>
       <div className="submit-button">
         <button>Ajouter</button>
+        {isSubmited && (
+          <div className="submit-message">
+            <FiCheck />
+            <span>Ajouté avec succès !</span>
+          </div>
+        )}
       </div>
     </AddFormStyled>
   );
@@ -109,5 +126,7 @@ const AddFormStyled = styled.form`
   .submit-button {
     background: blue;
     grid-area: 5/2 / 4/-1;
+    display: flex;
+    align-items: center;
   }
 `;
