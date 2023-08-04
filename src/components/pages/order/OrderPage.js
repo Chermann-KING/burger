@@ -16,7 +16,6 @@ export default function OrderPage() {
   const [products, setProducts] = useState(fakeMenu.MEDIUM);
 
   // comportement
-
   const handleAdd = (newProduct) => {
     // copie du tableau
     const copyProducts = [...products];
@@ -26,15 +25,32 @@ export default function OrderPage() {
     setProducts(productsUpdate);
   };
 
+  const handleDelete = (idOfProductToDelete) => {
+    // 1. Copie du tableau
+    const productsCopy = [...products];
+
+    // 2. Manipulation de la copie du tableau (filtre produit via son id dans la copie)
+    const productsUpdated = productsCopy.filter(
+      (product) => product.id !== idOfProductToDelete
+    );
+    console.log(productsUpdated);
+
+    // 3. Update du setProducts
+    setProducts(productsUpdated);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
+
     isCollapsed,
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
+
     products,
     handleAdd,
+    handleDelete,
   };
 
   // affiche

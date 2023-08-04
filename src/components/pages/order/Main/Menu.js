@@ -8,7 +8,7 @@ const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
   // state
-  const { products, isModeAdmin } = useContext(OrderContext);
+  const { products, isModeAdmin, handleDelete } = useContext(OrderContext);
 
   // comportement
 
@@ -23,6 +23,7 @@ export default function Menu() {
             title={title}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
+            onDelete={() => handleDelete(id)}
           />
         );
       })}
