@@ -13,7 +13,7 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
-  const [products, setProducts] = useState(fakeMenu.MEDIUM);
+  const [products, setProducts] = useState(fakeMenu.SMALL);
 
   // comportement
   const handleAdd = (newProduct) => {

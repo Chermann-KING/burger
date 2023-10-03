@@ -13,6 +13,8 @@ export default function Menu() {
   // comportement
 
   // affiche
+  if (products.length === 0) return <span>Pas de produit</span>;
+
   return (
     <MenuStyled>
       {products.map(({ id, imageSource, title, price }) => {
