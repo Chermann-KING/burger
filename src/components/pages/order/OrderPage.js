@@ -38,6 +38,10 @@ export default function OrderPage() {
     setProducts(productsUpdated);
   };
 
+  const resetProducts = () => {
+    setProducts(fakeMenu.SMALL);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -50,6 +54,7 @@ export default function OrderPage() {
     products,
     handleAdd,
     handleDelete,
+    resetProducts,
   };
 
   // affiche
