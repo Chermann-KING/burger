@@ -51,7 +51,7 @@ export default function AddForm() {
 
   // affichage
   return (
-    <AddFormStyled onClick={handleSubmit}>
+    <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview">
         {newProduct.imageSource ? (
           <img src={newProduct.imageSource} alt={newProduct.title} />
@@ -96,7 +96,8 @@ export default function AddForm() {
 }
 
 const AddFormStyled = styled.form`
-  border: 5px solid black;
+  /* border: 5px solid black; */
+
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
@@ -118,15 +119,24 @@ const AddFormStyled = styled.form`
   }
 
   .input-fields {
-    background: green;
+    /* background: green; */
+
     grid-area: 1/2 / 4/3;
     display: grid;
   }
 
   .submit-button {
-    background: blue;
+    /* background: blue; */
+
     grid-area: 5/2 / 4/-1;
     display: flex;
     align-items: center;
+
+    button {
+      cursor: pointer;
+      width: 30%;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.3rem;
+    }
   }
 `;

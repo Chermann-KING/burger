@@ -33,7 +33,6 @@ export default function OrderPage() {
     const productsUpdated = productsCopy.filter(
       (product) => product.id !== idOfProductToDelete
     );
-    console.log(productsUpdated);
 
     // 3. Update du setProducts
     setProducts(productsUpdated);
