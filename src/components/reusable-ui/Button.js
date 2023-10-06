@@ -11,10 +11,9 @@ export default function Button({ label, Icon, className, version = "normal" }) {
 }
 
 const ButtonStyled = styled.button`
-  ${(props) => {
-    if (props.version === "normal") return extraPrimaryStyle;
-    if (props.version === "success") return extraSuccessStyle;
-  }}
+  ${(props) => props.version === "normal" && extraPrimaryStyle}
+  ${(props) => props.version === "success" && extraSuccessStyle}
+  ${({ version }) => extratStyle[version]}
 `;
 
 const extraPrimaryStyle = css`
@@ -81,3 +80,8 @@ const extraSuccessStyle = css`
     border: 1px solid ${theme.colors.success};
   }
 `;
+
+const extratStyle = {
+  primary: extraPrimaryStyle,
+  success: extraSuccessStyle,
+};
