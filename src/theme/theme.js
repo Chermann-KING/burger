@@ -3,6 +3,7 @@ const colors = {
   incognito: "#333",
   white: "#fff",
   background_white: "#f5f5f7",
+  background_gray: "#f4f3f6",
   background_dark: "#292729",
   background_primary_button: "#ff9f1b",
   primary: "#ffa01b",

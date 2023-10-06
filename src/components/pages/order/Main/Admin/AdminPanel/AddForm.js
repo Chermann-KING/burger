@@ -1,7 +1,13 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
 import { FiCheck } from "react-icons/fi";
+import { theme } from "../../../../../../theme/theme";
+import TextInput from "../../../../../reusable-ui/TextInput";
+import { FaHamburger } from "react-icons/fa";
+import { MdOutlineEuro } from "react-icons/md";
+import { BsFillCameraFill } from "react-icons/bs";
+import Button from "../../../../../reusable-ui/Button";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -56,38 +62,49 @@ export default function AddForm() {
         {newProduct.imageSource ? (
           <img src={newProduct.imageSource} alt={newProduct.title} />
         ) : (
-          <p>Aucune image</p>
+          <div className="empty-image">
+            <p>Aucune image</p>
+          </div>
         )}
       </div>
       <div className="input-fields">
-        <input
+        <TextInput
           type="text"
           placeholder="Nom du produit (ex: Super Burger)"
           name="title"
           value={newProduct.title}
           onChange={handleChange}
+          Icon={<FaHamburger />}
+          version="minimalist"
         />
-        <input
+        <TextInput
           type="text"
-          placeholder="Lien URL d'une image (ex: https://la—photo—de—mon-produit.png)"
+          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           name="imageSource"
           value={newProduct.imageSource}
           onChange={handleChange}
+          Icon={<BsFillCameraFill />}
+          version="minimalist"
         />
-        <input
+        <TextInput
           type="text"
           placeholder="Prix"
           name="price"
           value={newProduct.price ? newProduct.price : ""}
           onChange={handleChange}
+          Icon={<MdOutlineEuro />}
+          version="minimalist"
         />
       </div>
       <div className="submit-button">
-        <button>Ajouter</button>
+        <Button
+          label={"Ajouter un nouveau produit au menu"}
+          version="success"
+        />
         {isSubmited && (
           <div className="submit-message">
-            <FiCheck />
-            <span>Ajouté avec succès !</span>
+            <FiCheck className="icon" />
+            <span className="message">Ajouté avec succès !</span>
           </div>
         )}
       </div>
@@ -96,13 +113,13 @@ export default function AddForm() {
 }
 
 const AddFormStyled = styled.form`
-  /* border: 5px solid black; */
-
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
   width: 70%;
   height: 100%;
+  grid-column-gap: 20px;
+  grid-row-gap: 8px;
 
   .image-preview {
     grid-area: 1/1 / 4/2;
@@ -111,23 +128,27 @@ const AddFormStyled = styled.form`
     justify-content: center;
     padding: 10px;
 
+    border: 1px solid ${theme.colors.greyLight};
+    border-radius: ${theme.borderRadius.round};
+
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
+    p {
+      color: ${theme.colors.greySemiDark};
+      line-height: 1.5;
+    }
   }
 
   .input-fields {
-    /* background: green; */
-
     grid-area: 1/2 / 4/3;
     display: grid;
+    grid-gap: 8px;
   }
 
   .submit-button {
-    /* background: blue; */
-
     grid-area: 5/2 / 4/-1;
     display: flex;
     align-items: center;
@@ -137,6 +158,26 @@ const AddFormStyled = styled.form`
       width: 50%;
       padding: 0.5rem 1.5rem;
       border-radius: 0.3rem;
+    }
+
+    .submit-message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      margin-left: 15px;
+
+      .icon {
+        width: 1.2em;
+        height: 1.2em;
+        color: ${theme.colors.success};
+        border: 1px solid ${theme.colors.success};
+        border-radius: ${theme.borderRadius.circle};
+      }
+      .message {
+        color: ${theme.colors.success};
+        font-size: ${theme.fonts.size.SM};
+      }
     }
   }
 `;

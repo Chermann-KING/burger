@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
-import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import Button from "../../reusable-ui/Button";
 import { theme } from "../../../theme/theme";
 
 export default function LoginForm() {
@@ -32,14 +32,17 @@ export default function LoginForm() {
         <TextInput
           value={inputValue}
           onChange={handleChange}
-          Icon={<BsPersonCircle className="icon" />}
+          Icon={<BsPersonCircle />}
           placeholder={"Entrez votre prénom"}
           required
+          className={"input-login"}
+          version="normal"
         />
 
-        <PrimaryButton
+        <Button
           label={"Acceder à mon espace"}
-          Icon={<IoChevronForward className="icon" />}
+          Icon={<IoChevronForward />}
+          className={"icon-button"}
         />
       </form>
     </LoginFormStyled>
@@ -47,6 +50,8 @@ export default function LoginForm() {
 }
 
 const LoginFormStyled = styled.div`
+  border: 1px solid red;
+
   z-index: 1;
   text-align: center;
   max-width: 500px;
@@ -73,11 +78,13 @@ const LoginFormStyled = styled.div`
     font-size: ${theme.fonts.size.P4};
   }
 
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${theme.fonts.size.SM};
-    margin-left: ${theme.gridUnit * 1.25}px;
+  .input-login {
+    margin: ${theme.gridUnit * 2.25}px 0;
+  }
+
+  .icon-button {
+    .icon {
+      margin-left: 10px;
+    }
   }
 `;
