@@ -6,6 +6,7 @@ import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 
 import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddForm";
 
 export default function OrderPage() {
   // state
@@ -14,6 +15,7 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
   const [products, setProducts] = useState(fakeMenu.SMALL);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   // comportement
   const handleAdd = (newProduct) => {
@@ -55,6 +57,9 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     resetProducts,
+
+    newProduct,
+    setNewProduct,
   };
 
   // affiche
