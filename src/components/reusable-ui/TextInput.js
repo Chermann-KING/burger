@@ -1,39 +1,83 @@
-import { BsPersonCircle } from "react-icons/bs";
-import { styled } from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme/theme";
 
-export default function TextInput({ value, onChange, ...restProps }) {
+export default function TextInput({
+  value,
+  onChange,
+  Icon,
+  className,
+  version = "normal",
+  ...restProps
+}) {
   return (
-    <TextInputStyled>
-      <BsPersonCircle className="icon" />
+    <TextInputStyled className={className} version={version}>
+      <div className="icon">{Icon && Icon}</div>
       <input value={value} onChange={onChange} type="text" {...restProps} />
     </TextInputStyled>
   );
 }
 
 const TextInputStyled = styled.div`
-  background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
-  padding: ${theme.gridUnit * 2.25}px ${theme.gridUnit * 3}px;
-  margin: ${theme.gridUnit * 2.25}px 0;
 
   .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: ${theme.fonts.size.SM};
     margin-right: ${theme.gridUnit}px;
     color: ${theme.colors.greySemiDark};
+    margin: 0 8px 0 10px;
+  }
+  .icon {
+    display: flex;
+    font-size: ${theme.fonts.size.SM};
+    margin: 0 13px 0 8px;
   }
   input {
     border: none;
     font-size: ${theme.fonts.size.SM};
-    color: ${theme.colors.dark};
     width: 100%;
-    transition: all 0.35s ease-in-out;
 
     &::placeholder {
-      background: ${theme.colors.white};
+      color: ${theme.colors.greyMedium};
+    }
+  }
+
+  ${({ version }) => extratStyle[version]}
+`;
+
+const extraNormalStyle = css`
+  background: ${theme.colors.white};
+  color: ${theme.colors.greySemiDark};
+  padding: 18px 28px;
+
+  input {
+    color: ${theme.colors.dark};
+
+    &::placeholder {
       color: ${theme.colors.greyMedium};
     }
   }
 `;
+const extraMinimalistlStyle = css`
+  background: ${theme.colors.background_gray};
+  color: ${theme.colors.greyBlue};
+  padding: 8px 16px;
+
+  input {
+    background: ${theme.colors.background_gray};
+    color: ${theme.colors.dark};
+
+    &:focus {
+      outline: 0;
+    }
+  }
+`;
+
+const extratStyle = {
+  normal: extraNormalStyle,
+  minimalist: extraMinimalistlStyle,
+};

@@ -1,10 +1,27 @@
 import { styled } from "styled-components";
 import { theme } from "../../theme/theme";
-import PrimaryButton from "./PrimaryButton";
+import Button from "./Button";
+import { TiDelete } from "react-icons/ti";
 
-export default function Card({ id, imageSource, title, leftDescription }) {
+export default function Card({
+  id,
+  imageSource,
+  title,
+  leftDescription,
+  hasDeleteButton,
+  onDelete,
+}) {
   return (
     <CardStyled key={id}>
+      {hasDeleteButton && (
+        <button
+          className="delete-button"
+          aria-label="delete-button"
+          onClick={onDelete}
+        >
+          <TiDelete className="icon" />
+        </button>
+      )}
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
@@ -20,7 +37,7 @@ export default function Card({ id, imageSource, title, leftDescription }) {
           </div>
 
           <div className="right-description">
-            <PrimaryButton label={"Ajouter"} />
+            <Button label={"Ajouter"} />
           </div>
         </div>
       </div>
@@ -31,6 +48,7 @@ export default function Card({ id, imageSource, title, leftDescription }) {
 const CardStyled = styled.div`
   width: 240px;
   height: 330px;
+  position: relative;
 
   display: grid;
   grid-template-rows: 65% 1fr;
@@ -40,6 +58,32 @@ const CardStyled = styled.div`
   background: ${theme.colors.white};
   border-radius: ${theme.borderRadius.extraRound};
   box-shadow: ${theme.shadows.medium};
+
+  .delete-button {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: 1px solid red;
+    width: 30px;
+    height: 30px;
+    color: ${theme.colors.primary};
+    padding: 0;
+    border: none;
+    background: none;
+
+    .icon {
+      height: 100%;
+      width: 100%;
+    }
+
+    :hover {
+      color: ${theme.colors.red};
+    }
+    :active {
+      color: ${theme.colors.primary};
+    }
+  }
 
   .image {
     width: 100%;

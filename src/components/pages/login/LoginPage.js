@@ -24,6 +24,7 @@ const LoginPageStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 
   background-image: url("./images/burger-background.webp");
   background-size: cover;
