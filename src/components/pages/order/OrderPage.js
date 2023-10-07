@@ -14,7 +14,7 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
-  const [products, setProducts] = useState(fakeMenu.SMALL);
+  const [products, setProducts] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   // comportement
@@ -41,7 +41,7 @@ export default function OrderPage() {
   };
 
   const resetProducts = () => {
-    setProducts(fakeMenu.SMALL);
+    setProducts(fakeMenu.LARGE);
   };
 
   const orderContextValue = {

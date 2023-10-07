@@ -50,8 +50,6 @@ export default function LoginForm() {
 }
 
 const LoginFormStyled = styled.div`
-  border: 1px solid red;
-
   z-index: 1;
   text-align: center;
   max-width: 500px;

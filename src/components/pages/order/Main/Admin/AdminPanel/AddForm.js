@@ -104,7 +104,6 @@ const AddFormStyled = styled.form`
 
     button {
       cursor: pointer;
-      width: 50%;
       padding: 0.5rem 1.5rem;
       border-radius: 0.3rem;
     }
