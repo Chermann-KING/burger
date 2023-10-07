@@ -65,12 +65,9 @@ export default function AddForm() {
       <div className="input-fields">
         {inputTexts.map((inputText) => (
           <TextInput
-            placeholder={inputText.placeholder}
-            name={inputText.name}
-            value={newProduct.title}
-            Icon={inputText.Icon}
+            key={inputText.id}
+            {...inputText}
             onChange={handleChange}
-            version={inputText.version}
           />
         ))}
       </div>
