@@ -8,6 +8,7 @@ import { FaHamburger } from "react-icons/fa";
 import { MdOutlineEuro } from "react-icons/md";
 import { BsFillCameraFill } from "react-icons/bs";
 import Button from "../../../../../reusable-ui/Button";
+import ImagePreview from "./ImagePreview";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -57,15 +58,10 @@ export default function AddForm() {
   // affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">
-        {newProduct.imageSource ? (
-          <img src={newProduct.imageSource} alt={newProduct.title} />
-        ) : (
-          <div className="empty-image">
-            <p>Aucune image</p>
-          </div>
-        )}
-      </div>
+      <ImagePreview
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         <TextInput
           type="text"
@@ -119,27 +115,6 @@ const AddFormStyled = styled.form`
   height: 100%;
   grid-column-gap: 20px;
   grid-row-gap: 8px;
-
-  .image-preview {
-    grid-area: 1/1 / 4/2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-
-    border: 1px solid ${theme.colors.greyLight};
-    border-radius: ${theme.borderRadius.round};
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    p {
-      color: ${theme.colors.greySemiDark};
-      line-height: 1.5;
-    }
-  }
 
   .input-fields {
     grid-area: 1/2 / 4/3;
