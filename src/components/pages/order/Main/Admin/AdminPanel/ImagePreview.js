@@ -4,7 +4,7 @@ import { theme } from "../../../../../../theme/theme";
 
 export default function ImagePreview({ imageSource, title }) {
   return (
-    <ImagePreviewStyled className="image-preview">
+    <ImagePreviewStyled>
       {imageSource ? (
         <img src={imageSource} alt={title} />
       ) : (
