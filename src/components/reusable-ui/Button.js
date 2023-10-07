@@ -17,8 +17,6 @@ export default function Button({
 }
 
 const ButtonStyled = styled.button`
-  ${(props) => props.version === "normal" && extraPrimaryStyle}
-  ${(props) => props.version === "success" && extraSuccessStyle}
   ${({ version }) => extratStyle[version]}
 `;
 
@@ -88,6 +86,6 @@ const extraSuccessStyle = css`
 `;
 
 const extratStyle = {
-  primary: extraPrimaryStyle,
+  normal: extraPrimaryStyle,
   success: extraSuccessStyle,
 };
